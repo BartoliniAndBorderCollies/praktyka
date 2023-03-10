@@ -2,10 +2,10 @@
 
 public class Student {
 
-    Integer id;
-    String name;
-    String surname;
-    Sex sex;
+    private Integer id;
+    private String name;
+    private String surname;
+    private Sex sex;
 
     public Student(Integer id, String name, String surname, Sex sex) {
         this.id = id;
@@ -50,7 +50,7 @@ public class Student {
 
 
 
-    student1.setName("UpdatedName");
+
 
 
 }
