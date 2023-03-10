@@ -5,18 +5,15 @@ public class Student {
     Integer id;
     String name;
     String surname;
-    Enum sex;
+    Sex sex;
 
-    public Student(Integer id) {
+    public Student(Integer id, String name, String surname, Sex sex) {
         this.id = id;
-    }
-
-    public Student(String name) {
         this.name = name;
-    }
-
-    public Student(Enum sex) {
+        this.surname = surname;
         this.sex = sex;
+
+
     }
 
     public Integer getId() {
@@ -31,7 +28,7 @@ public class Student {
         return surname;
     }
 
-    public Enum getSex() {
+    public Sex getSex() {
         return sex;
     }
 
@@ -47,15 +44,11 @@ public class Student {
         this.surname = surname;
     }
 
-    public void setSex(Enum sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
-    Student student1 = new Student(1, "nameStudent1", "surnameStudent", MALE);
 
-    Student student2 = new Student(2, "nameStudent2", "surnameStudent", FEMALE);
-
-    Student studentId = new Student((3, "nameStudent3", "surnameStudent", FEMALE);
 
     student1.setName("UpdatedName");
 
