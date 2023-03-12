@@ -9,52 +9,56 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What is your name?");
-        String name = scan.next();
+        String name = scan.nextLine();
 
         while (name.matches("[0-9]*")) {
             System.out.println("Name must contains letters only.");
-            name = scan.next();
+            name = scan.nextLine();
         }
 
 
         System.out.println("What is your surname?");
-        String surname = scan.next();
+        String surname = scan.nextLine();
 
         while (surname.matches("[0-9]*")) {
             System.out.println("Surname must contains letters only");
-            surname = scan.next();
+            surname = scan.nextLine();
         }
 
         System.out.println("What is your index number?");
-        String id = String.valueOf(scan.nextInt());
+        String id = scan.nextLine();
+
         while (!id.matches("[0-9]{6}")) {
 
             System.out.println("Index number should consist of 6 digits. Try again, what is your index number?");
-            id = String.valueOf(scan.nextInt());
-
+            id = scan.nextLine();
         }
+
 
         System.out.println("What is your sex? Answer M for MALE or F for FEMALE");
         Sex sex;
         String sexInput = "";
-        sexInput = scan.next();
+        sexInput = scan.nextLine();
 
 
         while (!sexInput.equalsIgnoreCase("M") && !sexInput.equalsIgnoreCase("F")) {
             System.out.println("Try again, what is your sex? If MALE answer M, for FEMALE answer F");
-            sexInput = scan.next();
+            sexInput = scan.nextLine();
+        }
 
-            if (sexInput.equalsIgnoreCase("M")) {
-                sex = Sex.MALE;
-            } else if (sexInput.equalsIgnoreCase("F")) {
-                sex = Sex.FEMALE;
-            }
+        if (sexInput.equalsIgnoreCase("M")) {
+            sex = Sex.MALE;
+        } else {
+            sex = Sex.FEMALE;
         }
 
 
-        System.out.println("This is your data and it will be saved: id number " + id + ", " + name + ", " + surname + ", " + sexInput);
 
-        Student newStudent = new Student(id, name, surname, sex);
+        Student newStudent = new Student(Integer.parseInt(id), name, surname, sex);
+        System.out.println(newStudent.getId());
+        System.out.println(newStudent.getName());
+        System.out.println(newStudent.getSurname());
+        System.out.println(newStudent.getSex());
 
 
 
@@ -69,3 +73,4 @@ public class Main {
 
     }
 }
+
