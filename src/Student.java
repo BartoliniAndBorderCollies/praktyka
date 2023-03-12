@@ -2,6 +2,8 @@
 
 public class Student {
 
+
+    // te fieldy powinny mieć status private
     private Integer id;
     private String name;
     private String surname;
