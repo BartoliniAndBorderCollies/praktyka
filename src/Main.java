@@ -7,51 +7,56 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        String name;
+        boolean repeatLoop;
 
         System.out.println("What is your name?");
-        String name = scan.nextLine();
+        do {
+            name = scan.next();
+            repeatLoop = name.matches("[0-9]*");
+            if (repeatLoop) {
+                System.out.println("Name must contain letters only.");
+            }
+        } while (repeatLoop);
 
-        while (name.matches("[0-9]*")) {
-            System.out.println("Name must contains letters only.");
-            name = scan.nextLine();
-        }
-
-
+        String surname;
         System.out.println("What is your surname?");
-        String surname = scan.nextLine();
+        do {
+            surname = scan.next();
+            repeatLoop = surname.matches("[0-9]*");
+            if (repeatLoop) {
+                System.out.println("Surname must contain letters only");
+            }
+        } while (repeatLoop);
 
-        while (surname.matches("[0-9]*")) {
-            System.out.println("Surname must contains letters only");
-            surname = scan.nextLine();
-        }
-
+        String id;
         System.out.println("What is your index number?");
-        String id = scan.nextLine();
+        do {
+            id = scan.next();
+            repeatLoop = !id.matches("[0-9]{6}");
+            if (repeatLoop) {
+                System.out.println("Index number should consist of 6 digits. Try again, what is your index number?");
+            }
+        } while (repeatLoop);
 
-        while (!id.matches("[0-9]{6}")) {
 
-            System.out.println("Index number should consist of 6 digits. Try again, what is your index number?");
-            id = scan.nextLine();
-        }
-
-
-        System.out.println("What is your sex? Answer M for MALE or F for FEMALE");
         Sex sex;
         String sexInput = "";
-        sexInput = scan.nextLine();
+        System.out.println("What is your sex? Answer M for MALE or F for FEMALE");
 
+        do {
+            sexInput = scan.next();
+            repeatLoop = (!sexInput.equalsIgnoreCase("M") && !sexInput.equalsIgnoreCase("F"));
+            if (repeatLoop) {
+                System.out.println("Try again, what is your sex? If MALE answer M, for FEMALE answer F");
+            }
 
-        while (!sexInput.equalsIgnoreCase("M") && !sexInput.equalsIgnoreCase("F")) {
-            System.out.println("Try again, what is your sex? If MALE answer M, for FEMALE answer F");
-            sexInput = scan.nextLine();
-        }
-
-        if (sexInput.equalsIgnoreCase("M")) {
-            sex = Sex.MALE;
-        } else {
-            sex = Sex.FEMALE;
-        }
-
+            if (sexInput.equalsIgnoreCase("M")) {
+                sex = Sex.MALE;
+            } else {
+                sex = Sex.FEMALE;
+            }
+        } while (repeatLoop);
 
 
         Student newStudent = new Student(Integer.parseInt(id), name, surname, sex);
@@ -59,7 +64,6 @@ public class Main {
         System.out.println(newStudent.getName());
         System.out.println(newStudent.getSurname());
         System.out.println(newStudent.getSex());
-
 
 
         // Obiekty zawsze muszą być w mainie.
