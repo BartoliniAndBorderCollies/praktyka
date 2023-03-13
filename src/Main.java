@@ -12,7 +12,7 @@ public class Main {
 
         System.out.println("What is your name?");
         do {
-            name = scan.next();
+            name = scan.nextLine();
             repeatLoop = name.matches("[0-9]*");
             if (repeatLoop) {
                 System.out.println("Name must contain letters only.");
@@ -22,7 +22,7 @@ public class Main {
         String surname;
         System.out.println("What is your surname?");
         do {
-            surname = scan.next();
+            surname = scan.nextLine();
             repeatLoop = surname.matches("[0-9]*");
             if (repeatLoop) {
                 System.out.println("Surname must contain letters only");
@@ -32,7 +32,7 @@ public class Main {
         String id;
         System.out.println("What is your index number?");
         do {
-            id = scan.next();
+            id = scan.nextLine();
             repeatLoop = !id.matches("[0-9]{6}");
             if (repeatLoop) {
                 System.out.println("Index number should consist of 6 digits. Try again, what is your index number?");
@@ -45,18 +45,19 @@ public class Main {
         System.out.println("What is your sex? Answer M for MALE or F for FEMALE");
 
         do {
-            sexInput = scan.next();
+            sexInput = scan.nextLine();
             repeatLoop = (!sexInput.equalsIgnoreCase("M") && !sexInput.equalsIgnoreCase("F"));
             if (repeatLoop) {
                 System.out.println("Try again, what is your sex? If MALE answer M, for FEMALE answer F");
             }
 
-            if (sexInput.equalsIgnoreCase("M")) {
-                sex = Sex.MALE;
-            } else {
-                sex = Sex.FEMALE;
-            }
         } while (repeatLoop);
+
+        if (sexInput.equalsIgnoreCase("M")) {
+            sex = Sex.MALE;
+        } else {
+            sex = Sex.FEMALE;
+        }
 
 
         Student newStudent = new Student(Integer.parseInt(id), name, surname, sex);
