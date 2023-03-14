@@ -66,6 +66,8 @@ public class Main {
         System.out.println(newStudent.getSurname());
         System.out.println(newStudent.getSex());
 
+        newStudent.presentYourself();
+
 
         // Obiekty zawsze muszą być w mainie.
 

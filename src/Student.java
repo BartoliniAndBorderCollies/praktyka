@@ -50,6 +50,11 @@ public class Student {
         this.sex = sex;
     }
 
+    public void presentYourself() {
+        System.out.println("hello, my name is " + name + " " + surname + ". I am a " + sex + " and my index number is: " + id);
+    }
+
+
 
 
 
